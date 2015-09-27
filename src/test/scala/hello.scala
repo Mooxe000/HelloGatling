@@ -32,8 +32,21 @@ class RecordedSimulation extends Simulation {
 			.get(uri + "/img/baidu.svg"))
 		)
 
+	// setUp(
+	// 	scn.inject(
+	// 		atOnceUsers(10)
+	// 	)
+	// ).protocols(httpProtocol)
+
 	setUp(
-		scn.inject(atOnceUsers(1))
-	).protocols(httpProtocol)
+		scn.inject(
+			constantUsersPerSec(10) during(3 seconds)
+		)
+	)
+	.protocols(httpProtocol)
+	.throttle(
+		reachRps(100) in (10 seconds),
+	  holdFor(10 seconds)
+	)
 
 }
