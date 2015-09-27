@@ -2,8 +2,8 @@
 
 set -e
 
-dir_name='scala'
-img_name="mooxe/${dir_name}"
+dir_name='HelloGatling'
+img_name="mooxe/scala"
 
 docker run \
   --name=$dir_name \
