@@ -1,0 +1,3 @@
+# HelloGatling
+
+Gatling seed project
